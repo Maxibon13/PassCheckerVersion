@@ -16,11 +16,13 @@ def Verify():
     response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
     _git_content = response.read().decode('utf-8')
 
-    print(_git_content,"         |          NEXT          |          ", local_content)
+    print(_git_content, local_content)
     
     if _git_content == local_content:
+        print("Continue")
         locked_ui()
     else:
+        print("Break")
         return
 
 def check_password():
