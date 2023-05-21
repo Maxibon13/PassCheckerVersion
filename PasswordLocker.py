@@ -1,5 +1,4 @@
 import os
-import xml.etree.ElementTree as ET
 import urllib.request
 
 import tkinter as tk
@@ -12,19 +11,18 @@ def Verify():
 
     # Check git-repo
     with open(file_path, "r") as file:
-        file_content = file.read()
+        local_content = file.read()
 
-    root_local = ET.fromstring(xml_content)
+    # Download the main file from the Git repository
+    response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
+    git_content = response.read().decode('utf-8')
 
-    # Download the XML file from the Git repository
-    response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/")
-    xml_content_git = response.read().decode('utf-8')
+    root_git = ET.fromstring(git_content)
 
-    root_git = ET.fromstring(xml_content_git)
-
-
-    if version_local == version_git and name_local == name_git:
+    if root_git = local_content:
         locked_ui()
+    else:
+        return
 
 def check_password():
     entered_password = password_entry.get()
