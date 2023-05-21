@@ -6,7 +6,6 @@ from tkinter import messagebox
 from tkinter import ttk
 
 def Verify():
-    global current_file_path, parent_directory_path
     file_path = os.path.abspath(__file__)
 
     # Check git-repo
@@ -17,7 +16,7 @@ def Verify():
     response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
     _git_content = response.read().decode('utf-8').strip().replace('\n', '')
 
-    print(_git_content, local_content)
+    print(_git_content,"         |          NEXT          |          ", local_content)
     
     if _git_content == local_content:
         locked_ui()
