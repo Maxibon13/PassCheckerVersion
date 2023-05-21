@@ -16,10 +16,8 @@ def Verify():
     # Download the main file from the Git repository
     response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
     git_content = response.read().decode('utf-8')
-
-    root_git = ET.fromstring(git_content)
-
-    if root_git = local_content:
+    
+    if root_git == local_content:
         locked_ui()
     else:
         return
