@@ -1,29 +1,8 @@
 import os
-import urllib.request
 
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
-
-def Verify():
-    file_path = os.path.abspath(__file__)
-
-    # Check git-repo
-    with open(file_path, "r") as file:
-        local_content = file.read()
-
-    # Download the main file from the Git repository
-    response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
-    _git_content = response.read().decode('utf-8')
-
-    print(_git_content, local_content)
-    
-    if _git_content == local_content:
-        print("Continue")
-        locked_ui()
-    else:
-        print("Break")
-        return
 
 def check_password():
     entered_password = password_entry.get()
@@ -84,4 +63,6 @@ def locked_ui():
 # Create the root window
 root = tk.Tk()
 root.withdraw()
-Verify()
+
+if not __name__ == "__main__":
+    locked_ui()
