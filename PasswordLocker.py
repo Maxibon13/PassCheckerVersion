@@ -11,11 +11,11 @@ def Verify():
 
     # Check git-repo
     with open(file_path, "r") as file:
-        local_content = file.read()
+        local_content = file.read().strip().replace('\n', '')
 
     # Download the main file from the Git repository
     response = urllib.request.urlopen("https://raw.githubusercontent.com/Maxibon13/PassCheckerVersion/main/PasswordLocker.py")
-    _git_content = response.read().decode('utf-8')
+    _git_content = response.read().decode('utf-8').strip().replace('\n', '')
 
     print(_git_content, local_content)
     
